@@ -2,7 +2,9 @@
 <suite parallel="User Nopcomerce" name="Suite">
   <test name="Run on Chrome">
     <classes>
-      <class name="com.nopcomerce.user.User_01_Register_Login"/>
+      <class name="com.nopcomerce.user.Level_02_Register_Login_BasePage_Part_I"/>
+      <class name="com.nopcomerce.user.Level_02_Register_Login_BasePage_Part_II"/>
+      <class name="com.nopcomerce.user.Level_02_Register_Login_BasePage_Part_III"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
