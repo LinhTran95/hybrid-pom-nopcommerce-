@@ -208,7 +208,7 @@ public class BasePage {
 	public void switchToFrame (WebDriver driver, String locator) {
 		driver.switchTo().frame(getWebElement(driver, locator));
 	}
-	public void switchToDèaultpage (WebDriver driver) {
+	public void switchToDefaultpage (WebDriver driver) {
 		driver.switchTo().defaultContent();
 	}
 	public void doubleClickToElement (WebDriver driver, String locator) {

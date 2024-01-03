@@ -9,15 +9,14 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import commons.BasePage;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.MyAccountPageObject;
-import pageObjects.RegisterPageObject;
+import commons.BaseTest;
+import pageFactory.nopCommerces.*;
 
-public class Level_02_Register_Login_Page_Object_Pattern {
+
+public class Level_05_Register_Login_Page_Factort extends BaseTest {
 	WebDriver driver;
 	HomePageObject homPage;
 	LoginPageObject loginPage;
@@ -27,10 +26,10 @@ public class Level_02_Register_Login_Page_Object_Pattern {
 	String projectPath = System.getProperty("user.dir");
 	String firstName, lastName, day, month, year, emailAddress, companyName, password;
 
+	@Parameters({"browser","url"})
 	@BeforeClass
-	public void beforeClass() {
-		System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver.exe");
-		driver = new ChromeDriver();
+	public void beforeClass(String browserName, String url) {
+		driver = getBrowserDriver (browserName,url);
 
 		// 1- Mo app url lên -> Navigate tới HomePage
 		driver.get("https://demo.nopcommerce.com/");
@@ -78,8 +77,8 @@ public class Level_02_Register_Login_Page_Object_Pattern {
 		homPage.clickToLoginLink();
 		loginPage = new LoginPageObject(driver);
 
-		loginPage.enterToEmailTextBox("");
-		loginPage.enterToPasswordTextBox("");
+		loginPage.enterToEmailTextBox(emailAddress);
+		loginPage.enterToPasswordTextBox(password);
 		loginPage.clickToLoginButton();
 
 		// 5- Stay at Log in Page (click Log In Button) -> Navigate to Home Page

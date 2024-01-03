@@ -1,4 +1,10 @@
 eclipse.preferences.version=1
+encoding//interfaces/pageUIsAlada/HomePageUI.java=UTF-8
+encoding//interfaces/pageUIsAlada/LoginPageUI.java=UTF-8
+encoding//testcases/com/alada/login/Level_03_Login_Page_Object_Pattern.java=UTF-8
 encoding//testcases/com/nopcomerce/user/Level_02_Register_Login_BasePage_Part_II.java=UTF-8
 encoding//testcases/com/nopcomerce/user/Level_02_Register_Login_BasePage_Part_III.java=UTF-8
-encoding//testcases/com/nopcomerce/user/Level_02_Register_Login_Page_Object_Pattern.java=UTF-8
+encoding//testcases/com/nopcomerce/user/Level_03_Register_Login_Page_Object_Pattern.java=UTF-8
+encoding//testcases/com/nopcomerce/user/Level_04_Register_Login_Multiple_Browser.java=UTF-8
+encoding//testcases/com/nopcomerce/user/Level_05_Register_Login_Page_Factort.java=UTF-8
+encoding//testcases/com/nopcomerce/user/Level_06_Register_Login_Page_Generator.java=UTF-8
