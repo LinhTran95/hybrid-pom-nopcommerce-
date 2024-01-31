@@ -22,7 +22,7 @@ public class Level_03_Register_Login_Page_Object_Pattern {
 	HomePageObject homPage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
-	MyAccountPageObject myAccountPage;
+	CustomerInforPageObject myAccountPage;
 
 	String projectPath = System.getProperty("user.dir");
 	String firstName, lastName, day, month, year, emailAddress, companyName, password;
@@ -91,7 +91,7 @@ public class Level_03_Register_Login_Page_Object_Pattern {
 	@Test
 	public void TC_03_My_Account() {
 		// 6- Đang từ Home Page (Click to My Account Link) ->Navigate to My Account Page
-		myAccountPage = new MyAccountPageObject(driver);
+		myAccountPage = new CustomerInforPageObject(driver);
 
 		Assert.assertTrue(myAccountPage.isGenderMaleRadioSelected());
 		Assert.assertEquals(myAccountPage.getFirtNameTextBoxValue(), firstName);

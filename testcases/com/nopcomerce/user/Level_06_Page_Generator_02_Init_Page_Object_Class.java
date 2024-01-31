@@ -16,7 +16,7 @@ import common.BaseTest;
 import pageFactory.nopCommerces.*;
 
 
-public class Level_05_Register_Login_Page_Factort extends BaseTest {
+public class Level_06_Page_Generator_02_Init_Page_Object_Class extends BaseTest {
 	WebDriver driver;
 	HomePageObject homPage;
 	LoginPageObject loginPage;
@@ -74,8 +74,7 @@ public class Level_05_Register_Login_Page_Factort extends BaseTest {
 	@Test
 	public void TC_02_Login() {
 		// 4- Stay at Home Page (click log in link) -> Navigate to Log In
-		homPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = homPage.clickToLoginLink();
 
 		loginPage.enterToEmailTextBox(emailAddress);
 		loginPage.enterToPasswordTextBox(password);

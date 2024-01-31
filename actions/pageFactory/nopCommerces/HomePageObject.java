@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageUIs.HomePageUI;
+import pageUIsNopcomerce.HomePageUI;
 
 public class HomePageObject extends BasePageFactory {
 	WebDriver driver;
@@ -34,14 +34,17 @@ public class HomePageObject extends BasePageFactory {
 	private WebElement myAccountLink;
 
 	// Page Object: Action
-	public void clickToRegisterLink() {
+	public RegisterPageObject clickToRegisterLink() {
 		waitForElementClickable(registerLink);
 		clickToElement(registerLink);
+		return new RegisterPageObject(driver);
+
 	}
 
-	public void clickToLoginLink() {
+	public LoginPageObject clickToLoginLink() {
 		waitForElementClickable(loginLink);
 		clickToElement(loginLink);
+		return new LoginPageObject(driver);
 	}
 
 	public void clickToMyAccountLink() {

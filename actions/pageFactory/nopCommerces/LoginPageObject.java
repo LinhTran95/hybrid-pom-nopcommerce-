@@ -7,7 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import common.BasePage;
-import pageUIs.LoginPageUI;
+import pageUIsNopcomerce.LoginPageUI;
 
 public class LoginPageObject extends BasePageFactory {
 	private WebDriver driver;
@@ -39,9 +39,10 @@ public class LoginPageObject extends BasePageFactory {
 		
 	}
 
-	public void clickToLoginButton() {
+	public HomePageObject clickToLoginButton() {
 		waitForElementClickable(loginButton);
 		clickToElement(loginButton);
+		return new HomePageObject(driver);
 		
 	}
 }

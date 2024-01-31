@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import pageUIs.RegisterPageUI;
+import pageUIsNopcomerce.RegisterPageUI;
 
 public class RegisterPageObject extends BasePageFactory{
 	private WebDriver driver;
@@ -139,9 +139,10 @@ public class RegisterPageObject extends BasePageFactory{
 			return isElementIsDisplay(registerSuccessMessage);
 		}
 
-		public void clickLogOutLink() {
+		public  HomePageObject clickLogOutLink() {
 			waitForElementClickable(logoutLink);
 			clickToElement(logoutLink);
+			return new HomePageObject(driver);
 
 		}
 

@@ -3,7 +3,7 @@ package pageObjectsnopComerce;
 import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
-import pageUIs.RegisterPageUI;
+import pageUIsNopcomerce.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
 	private WebDriver driver;
@@ -82,9 +82,11 @@ public class RegisterPageObject extends BasePage {
 		return isElementIsDisplay(driver, RegisterPageUI.REGISTERED_SUCCESS_MESSAGE);
 	}
 
-	public void clickLogOutLink() {
+	public HomePageObject clickLogOutLink() {
 		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
 		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);
+		//2 
+		return PageGenerator.getHomePage(driver);
 
 	}
 

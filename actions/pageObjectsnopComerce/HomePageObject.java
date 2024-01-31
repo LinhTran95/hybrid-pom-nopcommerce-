@@ -3,31 +3,32 @@ package pageObjectsnopComerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.HomePageUI;
+import pageUIsNopcomerce.HomePageUI;
 
 public class HomePageObject extends BasePage {
 	private WebDriver driver;
 
-	public HomePageObject(WebDriver driver) {
-		this.driver = driver;
+	public HomePageObject(WebDriver _driver) {
+		driver = _driver;
 	}
 
-
-	public void clickToRegisterLink() {
+	public RegisterPageObject clickToRegisterLink() {
 		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
 		clickToElement(driver, HomePageUI.REGISTER_LINK);
+		return PageGenerator.getRegisterPage(driver);
 
 	}
 
-	public void clickToLoginLink() {
+	public LoginPageObject clickToLoginLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
+		return PageGenerator.getLoginPage(driver);
 	}
 
-	public void clickToMyAccountLink() {
+	public CustomerInforPageObject clickToMyAccountLink() {
 		waitForElementClickable(driver, HomePageUI.MYACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MYACCOUNT_LINK);
-
+		return PageGenerator.getCustomerInforPage(driver);
 	}
 
 }

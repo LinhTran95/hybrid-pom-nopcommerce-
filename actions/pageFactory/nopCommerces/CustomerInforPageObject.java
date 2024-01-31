@@ -6,12 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import pageUIs.MyAccountPageUI;
+import pageUIsNopcomerce.CustomerInforPageUI;
 
-public class MyAccountPageObject extends BasePageFactory {
+public class CustomerInforPageObject extends BasePageFactory {
 	private WebDriver driver;
 
-	public MyAccountPageObject(WebDriver _driver) {
+	public CustomerInforPageObject(WebDriver _driver) {
 		super(_driver);
 		this.driver = _driver;
 		PageFactory.initElements(_driver, this);
