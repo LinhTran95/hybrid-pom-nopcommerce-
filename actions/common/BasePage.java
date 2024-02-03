@@ -1,5 +1,6 @@
 package common;
 
+import java.io.File;
 import java.util.List;
 import java.util.Set;
 
@@ -230,7 +231,8 @@ public class BasePage {
 	public int getElementSize(WebDriver driver, String locator) {
 		return getWebElements(driver, locator).size();
 	}
-	public int getElementSize(WebDriver driver, String locator, String...value) {
+
+	public int getElementSize(WebDriver driver, String locator, String... value) {
 		return getWebElements(driver, castRestParameter(locator, value)).size();
 	}
 
@@ -294,7 +296,8 @@ public class BasePage {
 		action = new Actions(driver);
 		action.sendKeys(getWebElement(driver, locator), key).perform();
 	}
-	public void sendKeyBoardToElement(WebDriver driver, String locator, Keys key, String...values) {
+
+	public void sendKeyBoardToElement(WebDriver driver, String locator, Keys key, String... values) {
 		action = new Actions(driver);
 		action.sendKeys(getWebElement(driver, castRestParameter(locator, values)), key).perform();
 	}
@@ -303,13 +306,42 @@ public class BasePage {
 		return Color.fromString(rgbaValue).asHex();
 	}
 
-	public void uploadToElement(WebDriver driver, String locator, String filePath) {
-		getWebElement(driver, locator).sendKeys(filePath);
+	public void uploadOneFile(WebDriver driver, String locator, String fileName) {
+		getWebElement(driver, locator).sendKeys(fileName);
+	}
+
+	public void uploadMultipleFiles(WebDriver driver, String locator, String... fileNames) {
+		String osName = System.getProperty("os.name");
+		String projectLocation = System.getProperty("user.dir");
+		String fullFileName = "";
+		String filePath = "";
+
+		// Cách 1
+		if (osName.contains("Windows")) {
+			filePath = projectLocation + "\\uploadFiles";
+		} else {
+			filePath = projectLocation + "/uploadFiles/";
+		}
+		// Cách 2
+		filePath = projectLocation + File.separator + "uploadFiles" + File.separator;
+
+		for (String file : fileNames) {
+			fullFileName = fullFileName + filePath + file + "\n";
+		}
+
+		fullFileName = fullFileName.trim();
+		getWebElement(driver, locator).sendKeys(fullFileName);
 	}
 
 	public WebElement waitForElementVisible(WebDriver driver, String locator) {
 		explicitWait = new WebDriverWait(driver, longTimeOut);
 		return explicitWait.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(locator)));
+	}
+
+	public WebElement waitForElementVisible(WebDriver driver, String locator, String... values) {
+		explicitWait = new WebDriverWait(driver, longTimeOut);
+		return explicitWait
+				.until(ExpectedConditions.visibilityOfElementLocated(getByXpath(castRestParameter(locator, values))));
 	}
 
 	public WebElement waitForElementClickable(WebDriver driver, String locator) {

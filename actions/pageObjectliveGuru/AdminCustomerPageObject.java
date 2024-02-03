@@ -11,4 +11,14 @@ public class AdminCustomerPageObject  extends BasePage {
 		this.driver = driver;
 	}
 
+	public boolean isLoadingIconDisappear() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isUserInfoDisplayInTable(String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

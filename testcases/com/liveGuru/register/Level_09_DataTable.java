@@ -11,6 +11,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
+import common.GlobalConstants;
 import pageObjectliveGuru.AdminCustomerPageObject;
 import pageObjectliveGuru.AdminLoginPageObject;
 import pageObjectliveGuru.AdminManageCustomerPageObject;
@@ -29,6 +30,7 @@ public class Level_09_DataTable extends BaseTest {
 	AdminCustomerPageObject adminCustomerPage;
 	AdminLoginPageObject adminLoginPage;
 	AdminManageCustomerPageObject adminManageCustomPage;
+	String firstName, lastName, emailAddress, fullName, password;
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass
@@ -36,6 +38,11 @@ public class Level_09_DataTable extends BaseTest {
 		driver = getBrowserDriver(browserName, url);
 
 		userHomePage = PageGenerator.getUserHomePage(driver);
+		firstName = "Automation";
+		lastName = "FC";
+		fullName = firstName + " " + lastName;
+		emailAddress = "afc" + getRandomNumber() + "@gmail.com";
+		password = "123456";
 	}
 
 	@Test
@@ -43,30 +50,30 @@ public class Level_09_DataTable extends BaseTest {
 		userLoginPage = userHomePage.clickToMyAccountPage();
 		userRegisterPage = userLoginPage.clickCreateAccountButton();
 
-		userRegisterPage.enterToFirstNameTextbox("");
-		userRegisterPage.enterToLastNameTextbox("");
-		userRegisterPage.enterToEmailAddressTextbox("");
-		userRegisterPage.enterToPasswordTextbox("");
-		userRegisterPage.enterToConfirmTextbox("");
+		userRegisterPage.enterToFirstNameTextbox(firstName);
+		userRegisterPage.enterToLastNameTextbox(lastName);
+		userRegisterPage.enterToEmailAddressTextbox(emailAddress);
+		userRegisterPage.enterToPasswordTextbox(password);
+		userRegisterPage.enterToConfirmTextbox(password);
 		userDashboardPage = userRegisterPage.clickToRegisterButton();
 		Assert.assertTrue(userDashboardPage.isUserRegisterSuccessMessageDisplay());
 	}
 
 	@Test
 	public void TC_02_Search_User_At_Admin() {
-		adminLoginPage = userDashboardPage.openAdminPage();
+		adminLoginPage = userDashboardPage.openAdminLoginPage();
 
-		adminLoginPage.enterToUserNameTextbox("user01");
-		adminLoginPage.enterToPasswordTextbox("guru99com");
+		adminLoginPage.enterToUserNameTextbox(GlobalConstants.ADMIN_USER);
+		adminLoginPage.enterToPasswordTextbox(GlobalConstants.ADMIN_PASSWORD);
 
 		adminManageCustomPage = adminLoginPage.clickToLoginButton();
-		adminManageCustomPage.enterToTextboxAtColumnName("","");
+		adminManageCustomPage.closePopupWindow();
+		
+		adminManageCustomPage.enterToTextboxAtColumnName("Email", emailAddress);
 		adminManageCustomPage.clickSearchButton();
-		
-		Assert.assertTrue(adminCustomerPage.isLoadingIconDisappear());
-		assertTrue(adminCustomerPage.isUserInfoDisplayInTable(""));
-		
 
+		Assert.assertFalse(adminManageCustomPage.isLoadingIconDisappear());
+		assertTrue(adminManageCustomPage.isUserInfoDisplayInTable(fullName, emailAddress));
 	}
 
 	@AfterClass

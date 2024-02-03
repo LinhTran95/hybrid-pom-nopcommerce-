@@ -2,7 +2,7 @@ package pageObjectsnopComerce;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
+import common.BasePage;
 import pageUIsNopcomerce.HomePageUI;
 import pageUIsNopcomerce.OrderPageUIs;
 

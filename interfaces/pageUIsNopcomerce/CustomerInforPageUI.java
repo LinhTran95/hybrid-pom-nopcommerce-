@@ -9,5 +9,6 @@ public class CustomerInforPageUI {
 	public static final String YEAR_DROPDROWN = "//select[@name='DateOfBirthYear']";
 	public static final String EMAIL_TEXTBOX = "//input[@id='Email']";
 	public static final String COMPANYNAME_TEXTBOX = "//input[@id='Company']";
+	public static final String ORDER_PAGE_LINK = null;
 	
 }
