@@ -3,14 +3,27 @@ package common;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.testng.Assert;
+import org.testng.Reporter;
 
 public class BaseTest {
 	private WebDriver driver;
+	
+	//Init Log 
+	protected final Log log; 
+	
+	//Constructor 
+	protected BaseTest() {
+		log = LogFactory.getLog(getClass());
+	}
 	private String projectPath = System.getProperty("uer.dir");
 	
 	protected WebDriver getBrowserDriver(String browserName, String url) {
@@ -36,6 +49,47 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		return driver;
 		
+	}
+	protected boolean verifyTrue(boolean condition) {
+		boolean status = true;
+		try {
+			Assert.assertTrue(condition);
+			log.info("---------------------- Passed -----------------------");
+		} catch (Throwable e) {
+			status = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+			log.info("---------------------- Failed -----------------------");
+		}
+		return status;
+	}
+
+	protected boolean verifyFalse(boolean condition) {
+		boolean status = true;
+		try {
+			Assert.assertFalse(condition);
+			log.info("---------------------- Passed -----------------------");
+		} catch (Throwable e) {
+			status = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+			log.info("---------------------- Failed -----------------------");
+		}
+		return status;
+	}
+
+	protected boolean verifyEquals(Object actual, Object expected) {
+		boolean status = true;
+		try {
+			Assert.assertEquals(actual, expected);
+			log.info("---------------------- Passed -----------------------");
+		} catch (Throwable e) {
+			status = false;
+			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+			Reporter.getCurrentTestResult().setThrowable(e);
+			log.info("---------------------- Failed -----------------------");
+		}
+		return status;
 	}
 }
 

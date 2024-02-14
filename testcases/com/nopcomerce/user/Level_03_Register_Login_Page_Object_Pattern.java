@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import common.BasePage;
+import pageObjectsnopComerce.CustomerInforPageObject;
 import pageObjectsnopComerce.HomePageObject;
 import pageObjectsnopComerce.LoginPageObject;
 import pageObjectsnopComerce.MyAccountPageObject;
