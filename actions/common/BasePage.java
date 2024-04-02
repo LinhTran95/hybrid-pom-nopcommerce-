@@ -23,6 +23,7 @@ import pageObjectsnopComerce.OrdersPageObject;
 import pageObjectsnopComerce.PageGenerator;
 import pageObjectsnopComerce.RewardPointsPageObject;
 import pageUIsNopcomerce.BasePageUI;
+import pageUIsNopcomerce.RegisterPageUI;
 
 public class BasePage {
 
@@ -412,6 +413,36 @@ public class BasePage {
 	public void openSideBarPageByPageName(WebDriver driver, String pageName) {
 		waitForElementClickable(driver, BasePageUI.DYNAMIC_SIDE_BAR_PAGE_LINK, pageName);
 		clickToElement(driver, BasePageUI.DYNAMIC_SIDE_BAR_PAGE_LINK, pageName);
+	}
+
+	// Pattern Object
+	public void enterToTextboxByID(WebDriver driver, String textboxID, String value) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_TEXTBOX_BY_ID, textboxID);
+		sendKeyToElement(driver, BasePageUI.DYNAMIC_TEXTBOX_BY_ID, value, textboxID);
+	}
+
+	public void openHeaderPageByName(WebDriver driver, String pageName) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_HEADER, pageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_TEXTBOX_BY_ID, pageName);
+	}
+
+	public void openFooterPageByName(WebDriver driver, String pageName) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_FOOTER, pageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_TEXTBOX_BY_ID, pageName);
+	}
+
+	public void clickToRadioButtonByID(WebDriver driver, String radioButtonID) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, radioButtonID);
+		clickToElement(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, radioButtonID);
+	}
+
+	public void selectDropDownByName(WebDriver driver, String dropdownName, String itemText) {
+		selectItemInDefaultDropDown(driver, BasePageUI.DYNAMIC_DROPDOWN_BY_NAME, dropdownName, itemText);
+
+	}
+	public void clickToButtonByText(WebDriver driver, String buttonText) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, buttonText);
+		clickToElement(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, buttonText);
 	}
 
 	private WebDriverWait explicitWait;

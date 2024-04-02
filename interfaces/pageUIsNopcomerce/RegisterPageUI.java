@@ -15,4 +15,6 @@ public class RegisterPageUI {
 	public static final String REGISTERED_SUCCESS_MESSAGE = "//div[@class='result' and text()='Your registration completed'] ";
 	public static final String LOGOUT_LINK = "//a[@class='ico-logout']";
 	
+	public static final String DYNAMIC_TEXTBOX_BY_ID ="//input[@id='%s']"; 
+	
 }

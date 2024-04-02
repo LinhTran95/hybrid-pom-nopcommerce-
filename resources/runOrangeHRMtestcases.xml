@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Orange HRM" parallel="false">
+  <listener>
+		<listener class-name="commons.MethodListener" />
+	</listener>
+	<parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" />
+	
+	<test name="Run on Chrome">
+	<parameter name = "browser" value ="chrome"/>
+		<classes>
+			<class name="com.orangehrm.employee.Employee_01_Add_Edit_Employee_User" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
