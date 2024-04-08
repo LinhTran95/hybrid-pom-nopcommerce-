@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import common.BaseTest;
 import pageObjects.orangehrm.DashboardPageObject;
 import pageObjects.orangehrm.EmployeeDetailPageObject;
+import pageObjects.orangehrm.EmployeeListPageObject;
 import pageObjects.orangehrm.LoginPageObject;
 import pageObjects.orangehrm.PageGeneraterManager;
 import pageObjects.orangehrm.UserDetailPageObject;
@@ -26,13 +27,20 @@ public class Employee_01_Add_Edit_Employee_User extends BaseTest {
 	LoginPageObject loginPage;
 	DashboardPageObject dashboardPage;
 	EmployeeDetailPageObject employeePage;
+	EmployeeListPageObject employeelistPage;
 	UserDetailPageObject userdetailPage;
+
+	String firstName, lastName, employeeID;
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
 		driver = getBrowserDriver(browserName, url);
 		loginPage = PageGeneraterManager.getLoginPage(driver);
+
+		firstName = "Automation";
+		lastName = "Testing";
+		employeeID = "";
 
 		log.info("Pre-condition- Step 01: Enter Username Textbox");
 		loginPage.enterToUserNameTextBox("Admin");
@@ -48,6 +56,22 @@ public class Employee_01_Add_Edit_Employee_User extends BaseTest {
 
 	@Test
 	public void TC_01_Add_Employee() {
+		dashboardPage.openMenuPageByName(driver, "PIM");
+		employeelistPage = PageGeneraterManager.getEmployeeListPage(driver);
+
+		employeePage = employeelistPage.clickToAddButton();
+		employeePage.enterToFirstNameTextbox(firstName);
+		employeePage.enterToLastNameTextbox(lastName);
+		
+		// Add employee form 
+		employeeID = employeePage.getEmployeeIDAtEmployeeForm();
+		employeePage.clickToSaveButton();
+		verifyTrue(employeePage.isFullNameDisplayAtHeader(firstName + " " + lastName));
+		verifyEquals(employeePage.getFirstNameValueAtPersonalDetailForm(), firstName);
+		verifyEquals(employeePage.getLastNameValueAtPersonalDetailForm(), lastName);
+		
+		// Personal Detail form
+		verifyEquals(employeePage.getEmployeeIDValueAtPersonalDetailForm(), employeeID);
 
 	}
 

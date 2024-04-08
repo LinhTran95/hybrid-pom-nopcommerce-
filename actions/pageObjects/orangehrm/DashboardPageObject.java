@@ -2,9 +2,10 @@ package pageObjects.orangehrm;
 
 import org.openqa.selenium.WebDriver;
 
-import common.BaseTest;
+import common.BasePage;
 
-public class DashboardPageObject extends BaseTest{
+
+public class DashboardPageObject extends BasePage{
 	WebDriver driver;
 
 	public DashboardPageObject(WebDriver driver) {

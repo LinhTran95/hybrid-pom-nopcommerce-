@@ -22,6 +22,7 @@ import pageObjectsnopComerce.CustomerInforPageObject;
 import pageObjectsnopComerce.OrdersPageObject;
 import pageObjectsnopComerce.PageGenerator;
 import pageObjectsnopComerce.RewardPointsPageObject;
+import pageUIs.orangehrm.OrangeHRMBasePageUI;
 import pageUIsNopcomerce.BasePageUI;
 import pageUIsNopcomerce.RegisterPageUI;
 
@@ -444,6 +445,12 @@ public class BasePage {
 		waitForElementClickable(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, buttonText);
 		clickToElement(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, buttonText);
 	}
+	
+	public void openMenuPageByName(WebDriver driver, String menuName) {
+		waitForElementClickable(driver, OrangeHRMBasePageUI.DYNAMIC_MENU_LINK, menuName);
+		clickToElement(driver, OrangeHRMBasePageUI.DYNAMIC_MENU_LINK, menuName);
+	}
+
 
 	private WebDriverWait explicitWait;
 	private long longTimeOut = 40;
