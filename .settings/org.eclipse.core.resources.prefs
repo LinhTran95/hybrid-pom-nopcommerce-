@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//actions/common/BasePage.java=UTF-8
 encoding//actions/pageObjectjQuery/HomePageObject.java=UTF-8
 encoding//actions/pageObjectjQuery/PageGenerator.java=UTF-8
+encoding//actions/pageObjects/orangehrm/EmployeeDetailPageObject.java=UTF-8
 encoding//actions/pageObjectsnopComerce/PageGenerator.java=UTF-8
 encoding//interfaces/pageUIsAlada/HomePageUI.java=UTF-8
 encoding//interfaces/pageUIsAlada/LoginPageUI.java=UTF-8

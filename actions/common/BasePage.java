@@ -265,6 +265,9 @@ public class BasePage {
 	public boolean isElementIsSelected(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).isSelected();
 	}
+	public boolean isElementIsSelected(WebDriver driver, String locator, String... values) {
+		return getWebElement(driver, locator).isSelected();
+	}
 
 	public void switchToFrame(WebDriver driver, String locator) {
 		driver.switchTo().frame(getWebElement(driver, locator));
@@ -445,6 +448,8 @@ public class BasePage {
 		waitForElementClickable(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, buttonText);
 		clickToElement(driver, BasePageUI.DYNAMIC_RADIOBUTTON_BY_ID, buttonText);
 	}
+	
+	// Project orange HRM//
 	
 	public void openMenuPageByName(WebDriver driver, String menuName) {
 		waitForElementClickable(driver, OrangeHRMBasePageUI.DYNAMIC_MENU_LINK, menuName);
