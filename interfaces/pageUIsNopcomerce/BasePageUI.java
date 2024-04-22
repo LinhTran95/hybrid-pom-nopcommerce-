@@ -16,4 +16,9 @@ public class BasePageUI {
 	public static final String DYNAMIC_RADIOBUTTON_BY_ID = "//input[@id='%s']";
 	public static final String DYNAMIC_DROPDOWN_BY_NAME = "//select[@name='%s']";
 	public static final String DYNAMIC_BUTTON_BY_TEXT= "//button[text()='%s']";
+	
+	//Employee List Side Bar menu
+	public static final String DYNAMIC_SIDE_BAR_MENU_BY_TEXT= "//div[@class='orangehrm-tabs-wrapper']/a[text()='%s']";
+
+	
 }

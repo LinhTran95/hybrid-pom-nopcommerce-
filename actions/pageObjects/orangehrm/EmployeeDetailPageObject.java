@@ -60,6 +60,7 @@ public class EmployeeDetailPageObject extends BasePage {
 		clickToElement(driver, EmployeeDetailPageUI.DYNAMIC_BUTTON_AT_QUALIFICATION_PAGE, headerName, buttonName);
 
 	}
+	// Personal Details Page
 
 	public void enterToFirstNameTextBoxAtPersonalDetailForm(String firstName) {
 		waitForElementVisible(driver, EmployeeDetailPageUI.FIRST_NAME_TEXT_BOX_AT_PERSONAL_DETAIL_PAGE);
@@ -85,7 +86,8 @@ public class EmployeeDetailPageObject extends BasePage {
 
 	public void selectDataForNationalityDropdownAtPersonalDetailForm(String nationality) {
 		waitForElementVisible(driver, EmployeeDetailPageUI.NATIONALITY_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE);
-		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.NATIONALITY_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE, nationality);
+		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.NATIONALITY_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE,
+				nationality);
 	}
 
 	public void selectDataForMarrialStatusDropdownAtPersonalDetailForm(String maritalStatus) {
@@ -132,12 +134,14 @@ public class EmployeeDetailPageObject extends BasePage {
 
 	public String getSelectedItemOfNaitonalityDropDownAtPersonalDetailForm() {
 		waitForElementVisible(driver, EmployeeDetailPageUI.NATIONALITY_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE);
-		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.NATIONALITY_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver,
+				EmployeeDetailPageUI.NATIONALITY_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE);
 	}
 
 	public String getSelectedItemOfMarrialStatusDropDownAtPersonalDetailForm() {
 		waitForElementVisible(driver, EmployeeDetailPageUI.MARITAL_STATUS_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE);
-		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.MARITAL_STATUS_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver,
+				EmployeeDetailPageUI.MARITAL_STATUS_DROP_DOWN_AT_PERSONAL_DETAIL_PAGE);
 	}
 
 	public String getDOBDateAtPersonalDetailFormAtPersonalDetailForm() {
@@ -146,8 +150,79 @@ public class EmployeeDetailPageObject extends BasePage {
 	}
 
 	public boolean isGenderRadioButtonSelectedAtPersonalDetailForm(String genderValue) {
-		waitForElementVisible(driver, EmployeeDetailPageUI.MALE_GENDER_RADIO_BUTTON_AT_PERSONAL_DETAIL_PAGE, genderValue);
-		return isElementIsSelected(driver, EmployeeDetailPageUI.MALE_GENDER_RADIO_BUTTON_AT_PERSONAL_DETAIL_PAGE, genderValue);
+		waitForElementVisible(driver, EmployeeDetailPageUI.MALE_GENDER_RADIO_BUTTON_AT_PERSONAL_DETAIL_PAGE,
+				genderValue);
+		return isElementIsSelected(driver, EmployeeDetailPageUI.MALE_GENDER_RADIO_BUTTON_AT_PERSONAL_DETAIL_PAGE,
+				genderValue);
+	}
+
+	// Contract Details Page
+
+	public void enterToStreet1TextboxAtContractDetailsForm(String street) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.STREET_1_TEXT_BOX_AT_CONTRACT_PAGE);
+		enterToTextboxByID(driver, EmployeeDetailPageUI.STREET_1_TEXT_BOX_AT_CONTRACT_PAGE, street);
+
+	}
+
+	public void enterCityTextboxAtContractDetailsForm(String City) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.CITY_TEXT_BOX_AT_CONTRACT_PAGE);
+		enterToTextboxByID(driver, EmployeeDetailPageUI.CITY_TEXT_BOX_AT_CONTRACT_PAGE, City);
+	}
+
+	public void enterStateProvinceTextboxAtContractDetailsForm(String State) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.STATE_PROVINCE_TEXT_BOX_AT_CONTRACT_PAGE);
+		enterToTextboxByID(driver, EmployeeDetailPageUI.STATE_PROVINCE_TEXT_BOX_AT_CONTRACT_PAGE, State);
+	}
+
+	public void selectDataForCountryDropdownAtContractDetailsForm(String country) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.COUNTRY_DROPDOWN_AT_CONTRACT_PAGE);
+		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.COUNTRY_DROPDOWN_AT_CONTRACT_PAGE, country);
+	}
+
+	public void enterMobileTextboxAtContractDetailsForm(String mobile) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.MOBILE_TEXT_BOX_AT_CONTRACT_PAGE);
+		enterToTextboxByID(driver, EmployeeDetailPageUI.MOBILE_TEXT_BOX_AT_CONTRACT_PAGE, mobile);
+	}
+
+	public void enterWorkEmailTextboxAtContractDetailsForm(String workEmail) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.WORK_EMAIL_BOX_AT_CONTRACT_PAGE);
+		enterToTextboxByID(driver, EmployeeDetailPageUI.WORK_EMAIL_BOX_AT_CONTRACT_PAGE, workEmail);
+
+	}
+
+	public Object getSuccessMessageAtContractDetailForm() {
+		waitForElementClickable(driver, EmployeeDetailPageUI.SUCCESS_MESSAGE_AT_CONTRACT_DETAIL_PAGE);
+		return getElementText(driver, EmployeeDetailPageUI.SUCCESS_MESSAGE_AT_CONTRACT_DETAIL_PAGE);
+	}
+
+	public Object getStreetAtContractDetailForm() {
+		waitForElementClickable(driver, EmployeeDetailPageUI.STREET_1_TEXT_BOX_AT_CONTRACT_PAGE);
+		return getElementText(driver, EmployeeDetailPageUI.STREET_1_TEXT_BOX_AT_CONTRACT_PAGE);
+	}
+
+	public Object getCityAtContractDetailForm() {
+		waitForElementClickable(driver, EmployeeDetailPageUI.CITY_TEXT_BOX_AT_CONTRACT_PAGE);
+		return getElementText(driver, EmployeeDetailPageUI.CITY_TEXT_BOX_AT_CONTRACT_PAGE);
+	}
+
+	public Object getStateProvinceAtContractDetailForm() {
+		waitForElementClickable(driver, EmployeeDetailPageUI.STATE_PROVINCE_TEXT_BOX_AT_CONTRACT_PAGE);
+		return getElementText(driver, EmployeeDetailPageUI.STATE_PROVINCE_TEXT_BOX_AT_CONTRACT_PAGE);
+	}
+
+	public Object getSelectedItemOfCountryAtContractDetailForm() {
+		waitForElementVisible(driver, EmployeeDetailPageUI.COUNTRY_DROPDOWN_AT_CONTRACT_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.COUNTRY_DROPDOWN_AT_CONTRACT_PAGE);
+	}
+
+	public Object getMobileAtContractDetailForm() {
+		waitForElementClickable(driver, EmployeeDetailPageUI.MOBILE_TEXT_BOX_AT_CONTRACT_PAGE);
+		return getElementText(driver, EmployeeDetailPageUI.MOBILE_TEXT_BOX_AT_CONTRACT_PAGE);
+	}
+
+	public Object getWorkEmailAtContractDetailForm() {
+		waitForElementClickable(driver, EmployeeDetailPageUI.WORK_EMAIL_BOX_AT_CONTRACT_PAGE);
+		return getElementText(driver, EmployeeDetailPageUI.WORK_EMAIL_BOX_AT_CONTRACT_PAGE);
 	}
 
 }

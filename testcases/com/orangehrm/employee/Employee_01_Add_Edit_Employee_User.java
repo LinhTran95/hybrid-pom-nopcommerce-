@@ -152,7 +152,50 @@ public class Employee_01_Add_Edit_Employee_User extends BaseTest {
 
 	@Test
 	public void TC_03_Edit_Employee_By_Contact() {
-
+		log.info("Edit Employee [Contract] Step 01: Go to page Contract Details");
+		employeeDetailPage.openSideBarPageByPageName(driver, "Contact Details");
+		
+		log.info("Edit Employee [Contract] Step 02: Enter street to textbox 'Street 1'");
+		employeeDetailPage.enterToStreet1TextboxAtContractDetailsForm("");
+		
+		log.info("Edit Employee [Contract] Step 03: Enter city to textbox 'City'");
+		employeeDetailPage.enterCityTextboxAtContractDetailsForm("");
+		
+		log.info("Edit Employee [Contract] Step 04: Enter state or province to textbox 'State/Province'");
+		employeeDetailPage.enterStateProvinceTextboxAtContractDetailsForm("");
+		
+		log.info("Edit Employee [Contract] Step 05: Select country in dropdown 'Country'");
+		employeeDetailPage.selectDataForCountryDropdownAtContractDetailsForm("");
+		
+		log.info("Edit Employee [Contract] Step 06: Enter info to textbox 'Mobile'");
+		employeeDetailPage.enterMobileTextboxAtContractDetailsForm("");
+		
+		log.info("Edit Employee [Contract] Step 07: Enter info to textbox 'Work Email'");
+		employeeDetailPage.enterWorkEmailTextboxAtContractDetailsForm("");
+		
+		log.info("Edit Employee [Contract] Step 08: Click 'Save' button");
+		employeeDetailPage.clickToSaveButton();
+		
+		log.info("Edit Employee [Contract] Step 09: Verify success message displays with value 'Successfully Saved'");
+		verifyEquals(employeeDetailPage.getSuccessMessageAtContractDetailForm(), "Successfully Saved");
+		
+		log.info("Edit Employee [Contract] Step 10: Verify 'Street 1' display as 'Hollin Newydd'");
+		verifyEquals(employeeDetailPage.getStreetAtContractDetailForm(), );
+		
+		log.info("Edit Employee [Contract] Step 11: Verify 'City' display as 'Claw Hill'");
+		verifyEquals(employeeDetailPage.getCityAtContractDetailForm(), );
+		
+		log.info("Edit Employee [Contract] Step 12: Verify 'State/Province' display as 'Adelaide'");
+		verifyEquals(employeeDetailPage.getStateProvinceAtContractDetailForm(), );
+		
+		log.info("Edit Employee [Contract] Step 13: Verify 'Country' display as 'United Kingdon'");
+		verifyEquals(employeeDetailPage.getSelectedItemOfCountryAtContractDetailForm(), );
+		
+		log.info("Edit Employee [Contract] Step 14: Verify 'Mobile' display correctly");
+		verifyEquals(employeeDetailPage.getMobileAtContractDetailForm(), );
+		
+		log.info("Edit Employee [Contract] Step 15: Verify 'Work Email' display correctly");
+		verifyEquals(employeeDetailPage.getWorkEmailAtContractDetailForm(), );
 	}
 
 	@Test
