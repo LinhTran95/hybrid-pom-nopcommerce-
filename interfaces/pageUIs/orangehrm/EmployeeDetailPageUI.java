@@ -27,12 +27,21 @@ public class EmployeeDetailPageUI {
 	
 	public static final String DYNAMIC_BUTTON_AT_QUALIFICATION_PAGE = "//h6[text()='%s']/ancestor::div[@class='orangehrm-action-header']//button";
 
-	// Contract Details Page
+	// Contract Details Form
 	public static final String STREET_1_TEXT_BOX_AT_CONTRACT_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][1]//input";
 	public static final String CITY_TEXT_BOX_AT_CONTRACT_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][3]//input";
 	public static final String STATE_PROVINCE_TEXT_BOX_AT_CONTRACT_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][4]//input";
 	public static final String COUNTRY_DROPDOWN_AT_CONTRACT_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][6]//div[@class='oxd-select-text-input']";
 	public static final String MOBILE_TEXT_BOX_AT_CONTRACT_PAGE ="//div[@class='oxd-form-row'][2]//div[@class='oxd-grid-item oxd-grid-item--gutters'][2]//input";
 	public static final String WORK_EMAIL_BOX_AT_CONTRACT_PAGE ="//div[@class='oxd-form-row'][3]//div[@class='oxd-grid-item oxd-grid-item--gutters'][1]//input";
-	public static final String SUCCESS_MESSAGE_AT_CONTRACT_DETAIL_PAGE = "";
+	public static final String SUCCESS_MESSAGE_AT_CONTRACT_DETAIL_PAGE = "//div[@id='oxd-toaster_1']/div/div[1]/div[2]/p[2]";
+	
+	// Job Form 
+	public static final String JOINED_DATE_TEXT_BOX_AT_JOB_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][1]//input";
+	public static final String JOB_TITLE_DROP_DOWN_AT_JOB_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][2]//div[@class='oxd-select-text-input']";
+	public static final String JOB_CATEGORY_DROP_DOWN_AT_JOB_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][4]//div[@class='oxd-select-text-input']";
+	public static final String SUB_UNIT_DROP_DOWN_AT_JOB_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][5]//div[@class='oxd-select-text-input']";
+	public static final String LOCATION_DROP_DOWN_AT_JOB_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][6]//div[@class='oxd-select-text-input']";
+	public static final String EMPLOYMENT_STATUS_DROP_DOWN_AT_JOB_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][7]//div[@class='oxd-select-text-input']";
+	public static final String SUCCESS_MESSAGE_AT_CONTRACT_JOB_PAGE ="//div[@class='oxd-form-row'][1]//div[@class='oxd-grid-item oxd-grid-item--gutters'][1]//input";
 }

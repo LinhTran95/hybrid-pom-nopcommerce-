@@ -225,4 +225,63 @@ public class EmployeeDetailPageObject extends BasePage {
 		return getElementText(driver, EmployeeDetailPageUI.WORK_EMAIL_BOX_AT_CONTRACT_PAGE);
 	}
 
+	// Job Form
+
+	public void enterDataforJoinedDateAtJobPage(String joinedDate) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.JOINED_DATE_TEXT_BOX_AT_JOB_PAGE);
+		enterToTextboxByID(driver, EmployeeDetailPageUI.JOINED_DATE_TEXT_BOX_AT_JOB_PAGE, joinedDate);
+	}
+
+	public void selectDataforJobTitleAtJobPage(String jobTitle) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.JOB_TITLE_DROP_DOWN_AT_JOB_PAGE);
+		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.JOB_TITLE_DROP_DOWN_AT_JOB_PAGE, jobTitle);
+
+	}
+
+	public void selectDataforJobCategoryAtJobPage(String jobCategory) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.JOB_CATEGORY_DROP_DOWN_AT_JOB_PAGE);
+		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.JOB_CATEGORY_DROP_DOWN_AT_JOB_PAGE, jobCategory);
+	}
+
+	public void selectDataforSubUnitAtJobPage(String subUnit) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.SUB_UNIT_DROP_DOWN_AT_JOB_PAGE);
+		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.SUB_UNIT_DROP_DOWN_AT_JOB_PAGE, subUnit);
+	}
+
+	public void selectDataforLocationAtJobPage(String location) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.LOCATION_DROP_DOWN_AT_JOB_PAGE);
+		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.LOCATION_DROP_DOWN_AT_JOB_PAGE, location);
+	}
+
+	public void selectDataforEmploymentStatusAtJobPage(String employmentStatus) {
+		waitForElementVisible(driver, EmployeeDetailPageUI.EMPLOYMENT_STATUS_DROP_DOWN_AT_JOB_PAGE);
+		selectItemInDefaultDropDown(driver, EmployeeDetailPageUI.EMPLOYMENT_STATUS_DROP_DOWN_AT_JOB_PAGE, employmentStatus);
+
+	}
+
+	public Object getSelectedItemOfJobTitleyAtJobForm() {
+		waitForElementVisible(driver, EmployeeDetailPageUI.JOB_TITLE_DROP_DOWN_AT_JOB_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.JOB_TITLE_DROP_DOWN_AT_JOB_PAGE);
+	}
+
+	public Object getSelectedItemOfJobCategoryAtContractJobForm() {
+		waitForElementVisible(driver, EmployeeDetailPageUI.JOB_CATEGORY_DROP_DOWN_AT_JOB_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.JOB_CATEGORY_DROP_DOWN_AT_JOB_PAGE);
+	}
+
+	public Object getSelectedItemOfSubUnitAtContractJobForm() {
+		waitForElementVisible(driver, EmployeeDetailPageUI.SUB_UNIT_DROP_DOWN_AT_JOB_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.SUB_UNIT_DROP_DOWN_AT_JOB_PAGE);
+	}
+
+	public Object getSelectedItemOfLocationAtContractJobForm() {
+		waitForElementVisible(driver, EmployeeDetailPageUI.LOCATION_DROP_DOWN_AT_JOB_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.LOCATION_DROP_DOWN_AT_JOB_PAGE);
+	}
+
+	public Object getSelectedItemOfEmploymentStatusAtContractJobForm() {
+		waitForElementVisible(driver, EmployeeDetailPageUI.EMPLOYMENT_STATUS_DROP_DOWN_AT_JOB_PAGE);
+		return getFirstSelectedItemInDefaultDropDown(driver, EmployeeDetailPageUI.EMPLOYMENT_STATUS_DROP_DOWN_AT_JOB_PAGE);
+	}
+
 }

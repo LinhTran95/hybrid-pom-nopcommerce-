@@ -33,6 +33,7 @@ public class Employee_01_Add_Edit_Employee_User extends BaseTest {
 	String firstName, lastName, employeeID;
 	String editFirstName, editLastName, editDriverLicenseNumber, editNationality, editLicenseExpiryDate,
 			editMarrialStatus, editDateofBirth, editGender;
+	String street1, city, stateProvince, country, mobile, workEmail;
 
 	@Parameters({ "browser", "url" })
 	@BeforeClass
@@ -50,6 +51,13 @@ public class Employee_01_Add_Edit_Employee_User extends BaseTest {
 		editMarrialStatus = "Single";
 		editDateofBirth = "1990-05-05";
 		editGender = "Male";
+		
+		street1 ="Hollin Newydd";
+		city ="Claw Hill";
+		stateProvince ="Adelaide";
+		country="United Kingdom";
+		mobile = "0123"+getRandomNumber();
+		workEmail = "auotmail" +getRandomNumber() + "@mail.com";
 
 		log.info("Pre-condition- Step 01: Enter Username Textbox");
 		loginPage.enterToUserNameTextBox("Admin");
@@ -156,22 +164,22 @@ public class Employee_01_Add_Edit_Employee_User extends BaseTest {
 		employeeDetailPage.openSideBarPageByPageName(driver, "Contact Details");
 		
 		log.info("Edit Employee [Contract] Step 02: Enter street to textbox 'Street 1'");
-		employeeDetailPage.enterToStreet1TextboxAtContractDetailsForm("");
+		employeeDetailPage.enterToStreet1TextboxAtContractDetailsForm(street1);
 		
 		log.info("Edit Employee [Contract] Step 03: Enter city to textbox 'City'");
-		employeeDetailPage.enterCityTextboxAtContractDetailsForm("");
+		employeeDetailPage.enterCityTextboxAtContractDetailsForm(city);
 		
 		log.info("Edit Employee [Contract] Step 04: Enter state or province to textbox 'State/Province'");
-		employeeDetailPage.enterStateProvinceTextboxAtContractDetailsForm("");
+		employeeDetailPage.enterStateProvinceTextboxAtContractDetailsForm(stateProvince);
 		
 		log.info("Edit Employee [Contract] Step 05: Select country in dropdown 'Country'");
-		employeeDetailPage.selectDataForCountryDropdownAtContractDetailsForm("");
+		employeeDetailPage.selectDataForCountryDropdownAtContractDetailsForm(country);
 		
 		log.info("Edit Employee [Contract] Step 06: Enter info to textbox 'Mobile'");
-		employeeDetailPage.enterMobileTextboxAtContractDetailsForm("");
+		employeeDetailPage.enterMobileTextboxAtContractDetailsForm(mobile);
 		
 		log.info("Edit Employee [Contract] Step 07: Enter info to textbox 'Work Email'");
-		employeeDetailPage.enterWorkEmailTextboxAtContractDetailsForm("");
+		employeeDetailPage.enterWorkEmailTextboxAtContractDetailsForm(workEmail);
 		
 		log.info("Edit Employee [Contract] Step 08: Click 'Save' button");
 		employeeDetailPage.clickToSaveButton();
@@ -180,26 +188,67 @@ public class Employee_01_Add_Edit_Employee_User extends BaseTest {
 		verifyEquals(employeeDetailPage.getSuccessMessageAtContractDetailForm(), "Successfully Saved");
 		
 		log.info("Edit Employee [Contract] Step 10: Verify 'Street 1' display as 'Hollin Newydd'");
-		verifyEquals(employeeDetailPage.getStreetAtContractDetailForm(), );
+		verifyEquals(employeeDetailPage.getStreetAtContractDetailForm(),street1 );
 		
 		log.info("Edit Employee [Contract] Step 11: Verify 'City' display as 'Claw Hill'");
-		verifyEquals(employeeDetailPage.getCityAtContractDetailForm(), );
+		verifyEquals(employeeDetailPage.getCityAtContractDetailForm(),city );
 		
 		log.info("Edit Employee [Contract] Step 12: Verify 'State/Province' display as 'Adelaide'");
-		verifyEquals(employeeDetailPage.getStateProvinceAtContractDetailForm(), );
+		verifyEquals(employeeDetailPage.getStateProvinceAtContractDetailForm(), stateProvince);
 		
 		log.info("Edit Employee [Contract] Step 13: Verify 'Country' display as 'United Kingdon'");
-		verifyEquals(employeeDetailPage.getSelectedItemOfCountryAtContractDetailForm(), );
+		verifyEquals(employeeDetailPage.getSelectedItemOfCountryAtContractDetailForm(),country );
 		
 		log.info("Edit Employee [Contract] Step 14: Verify 'Mobile' display correctly");
-		verifyEquals(employeeDetailPage.getMobileAtContractDetailForm(), );
+		verifyEquals(employeeDetailPage.getMobileAtContractDetailForm(),mobile );
 		
 		log.info("Edit Employee [Contract] Step 15: Verify 'Work Email' display correctly");
-		verifyEquals(employeeDetailPage.getWorkEmailAtContractDetailForm(), );
+		verifyEquals(employeeDetailPage.getWorkEmailAtContractDetailForm(),workEmail );
 	}
 
 	@Test
 	public void TC_04_Edit_Employee_By_Job() {
+		log.info("Edit Employee [Job] Step 01: Go to page Job");
+		employeeDetailPage.openSideBarPageByPageName(driver, "Job");
+		
+		log.info("Edit Employee [Job] Step 02: Enter infor to 'Joined Date' textbox");
+		employeeDetailPage.enterDataforJoinedDateAtJobPage("");
+		
+		log.info("Edit Employee [Job] Step 03: Select data in dropdown list 'Job title'");
+		employeeDetailPage.selectDataforJobTitleAtJobPage("");
+		
+		log.info("Edit Employee [Job] Step 04: Select data in dropdown list 'Job Category'");
+		employeeDetailPage.selectDataforJobCategoryAtJobPage("");
+		
+		log.info("Edit Employee [Job] Step 07: Select data in dropdown list 'Sub Unit'");
+		employeeDetailPage.selectDataforSubUnitAtJobPage("");
+		
+		log.info("Edit Employee [Job] Step 08: Select data in dropdown list 'Location'");
+		employeeDetailPage.selectDataforLocationAtJobPage("");
+		
+		log.info("Edit Employee [Job] Step 09: Select data in dropdown list 'Employment Status'");
+		employeeDetailPage.selectDataforEmploymentStatusAtJobPage("");
+		
+		log.info("Edit Employee [Job] Step 10: Click 'Save' button");
+		employeeDetailPage.clickToSaveButton();
+		
+		log.info("Edit Employee [Job] Step 11: Verify success message displays with value 'Successfully Saved'");
+		verifyEquals(employeeDetailPage.getSuccessMessageAtContractDetailForm(), "Successfully Saved");
+		
+		log.info("Edit Employee [Job] Step 12: Verify 'Job title' display correctly");
+		verifyEquals(employeeDetailPage.getSelectedItemOfJobTitleyAtJobForm(),country );
+		
+		log.info("Edit Employee [Job] Step 13: Verify 'Job Category' display correctly");
+		verifyEquals(employeeDetailPage.getSelectedItemOfJobCategoryAtContractJobForm(),country );
+		
+		log.info("Edit Employee [Job] Step 14: Verify 'Sub Unit' display correctly");
+		verifyEquals(employeeDetailPage.getSelectedItemOfSubUnitAtContractJobForm(),country );
+		
+		log.info("Edit Employee [Job] Step 15: Verify 'Location' display correctly");
+		verifyEquals(employeeDetailPage.getSelectedItemOfLocationAtContractJobForm(),country );
+		
+		log.info("Edit Employee [Job] Step 16: Verify 'Employment Status' display correctly");
+		verifyEquals(employeeDetailPage.getSelectedItemOfEmploymentStatusAtContractJobForm(),country );
 
 	}
 
